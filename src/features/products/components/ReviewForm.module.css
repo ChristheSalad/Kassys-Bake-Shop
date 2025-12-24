@@ -1,0 +1,58 @@
+/* src/features/products/components/ReviewForm.module.css */
+.form {
+  margin-top: 2rem;
+  background: #f9fafb;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.starSelector {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.starBtn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0 2px;
+  transition: transform 0.1s;
+}
+
+.starBtn:hover {
+  transform: scale(1.2);
+}
+
+.inputGroup {
+  margin-bottom: 1rem;
+}
+
+.input, .textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+}
+
+.textarea {
+  min-height: 100px;
+}
+
+.error {
+  color: red;
+  font-size: 0.8rem;
+}
+
+.submitBtn {
+  background-color: #111827;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}

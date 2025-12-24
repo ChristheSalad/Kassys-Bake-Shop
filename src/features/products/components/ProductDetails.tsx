@@ -1,27 +1,23 @@
 // src/features/products/components/ProductDetails.tsx
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { MOCK_PRODUCTS } from '../data';
-import { ProductReviews } from './ProductReviews';
 import { useCart } from '../../../context/CartContext';
+import { useProductWithReviews } from '../hooks/useProductWithReviews'; // IMPORT HOOK
+import { ProductReviews } from './ProductReviews';
+import { ReviewForm } from './ReviewForm'; // IMPORT FORM
 import styles from './ProductDetails.module.css';
 
 export const ProductDetails: React.FC = () => {
-  // 1. Get the "slug" from the URL (defined in App.tsx later)
   const { slug } = useParams<{ slug: string }>();
-
-  // 2. Find the matching product
-  const product = MOCK_PRODUCTS.find((p) => p.slug === slug);
-
-    // 4. Add to Cart
   const { addToCart } = useCart();
+  
+  // USE THE NEW HOOK (Handles data loading + math)
+  const { product, addReview } = useProductWithReviews(slug);
 
-  // 3. Handle "404 Not Found"
   if (!product) {
-    return <div>Product not found! <Link to="/products">Back to Menu</Link></div>;
+    return <div className={styles.container}>Loading or Product Not Found...</div>;
   }
 
-  // Helper for currency
   const formatPrice = (cents: number) => 
     new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(cents / 100);
 
@@ -30,7 +26,7 @@ export const ProductDetails: React.FC = () => {
       <Link to="/products" className={styles.backLink}>← Back to Menu</Link>
       
       <div className={styles.grid}>
-        {/* Left Column: Images */}
+        {/* Images */}
         <div className={styles.imageSection}>
           <img 
             src={product.images[0].url} 
@@ -39,27 +35,34 @@ export const ProductDetails: React.FC = () => {
           />
         </div>
 
-        {/* Right Column: Info & Safety */}
+        {/* Info */}
         <div className={styles.infoSection}>
           <h1 className={styles.title}>{product.name}</h1>
+          
+          {/* DYNAMIC RATING DISPLAY */}
+          <div style={{ color: '#fbbf24', fontSize: '1.2rem', marginBottom: '1rem' }}>
+            {'★'.repeat(Math.round(product.averageRating))} 
+            <span style={{ color: '#6b7280', fontSize: '0.9rem', marginLeft: '8px' }}>
+              ({product.reviewCount} reviews)
+            </span>
+          </div>
+
           <p className={styles.price}>{formatPrice(product.priceInCents)}</p>
           <p className={styles.description}>{product.description}</p>
 
-        <button 
+          <button 
             className={styles.addToCartBtn} 
             disabled={!product.isAvailable}
             onClick={() => {
-            addToCart(product);
-            // Optional: Give feedback without an alert
-            // setButtonText("Added!") 
+              addToCart(product);
+              alert("Added!");
             }}
-        >
+          >
             {product.isAvailable ? 'Add to Cart' : 'Unavailable'}
-        </button>
+          </button>
 
           <hr className={styles.divider} />
 
-          {/* SAFETY FEATURES SECTION */}
           <div className={styles.safetyBox}>
             <h3>⚠️ Allergens & Ingredients</h3>
             <div className={styles.tags}>
@@ -68,18 +71,21 @@ export const ProductDetails: React.FC = () => {
                 <span key={allergen} className={styles.allergenTag}>{allergen}</span>
               ))}
             </div>
-            
             <details className={styles.ingredientsDropdown}>
               <summary>View Full Ingredients List</summary>
               <p>{product.ingredients.join(', ')}.</p>
             </details>
           </div>
-
         </div>
       </div>
 
-        {/* REVIEWS SECTION */}      <ProductReviews reviews={product.reviews} />
-
+      {/* REVIEWS SECTION */}
+      <div style={{ marginTop: '4rem' }}>
+        <ProductReviews reviews={product.reviews} />
+        
+        {/* THE NEW FORM */}
+        <ReviewForm onSubmit={addReview} />
+      </div>
 
     </div>
   );
