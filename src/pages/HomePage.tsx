@@ -8,7 +8,7 @@ export const HomePage: React.FC = () => {
     <div>
       {/* 1. Hero Section */}
       <section className={styles.hero}>
-        <h1 className={styles.title}>Baked with Love & Logic</h1>
+        <h1 className={styles.title}>Baked with Love & Kindness</h1>
         <p className={styles.subtitle}>
           Small batch cookies, artisanal pastries, and treats made from scratch.
         </p>
@@ -24,7 +24,7 @@ export const HomePage: React.FC = () => {
           <div className={styles.featureCard}>
             <div className={styles.icon}>🍪</div>
             <h3>Fresh Ingredients</h3>
-            <p>We use only organic flour and real vanilla beans.</p>
+            <p>We use only organic flour and real vanilla beans, no animals harmed!</p>
           </div>
           <div className={styles.featureCard}>
             <div className={styles.icon}>🚚</div>

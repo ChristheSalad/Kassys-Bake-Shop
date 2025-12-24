@@ -8,15 +8,16 @@ export const AboutPage: React.FC = () => {
       
       <div style={{ lineHeight: '1.8', fontSize: '1.1rem', color: '#4b5563' }}>
         <p style={{ marginBottom: '1.5rem' }}>
-          It all started in a small university kitchen. What began as a stress-relief hobby 
-          during finals week quickly turned into a passion for creating the perfect chocolate chunk cookie.
+          It all started with a common backstory: a love for baking and taught by the best baker in 
+          the family, her grandma.
         </p>
         <p style={{ marginBottom: '1.5rem' }}>
-          At Kassy's Bakeshop, we believe that baking is a science and an art. We measure our 
-          ingredients to the gram, but we mix them with heart.
+          At Kassy's Bake Shop, she believes in the power of baking to bring people together. From the moment
+          you order her polvorones, or ask for a fresh baked oreo cheesecake, she is here to make your day a little
+          sweeter.
         </p>
         <p>
-          Whether you are here for a late-night study snack or a party platter, we promise 
+          Whether you are here for a late-night snack or a party platter, we promise 
           quality you can taste in every bite.
         </p>
       </div>
