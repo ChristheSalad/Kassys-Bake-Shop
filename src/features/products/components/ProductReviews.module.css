@@ -1,0 +1,73 @@
+/* src/features/products/components/ProductReviews.module.css */
+
+.container {
+  margin-top: 4rem; /* Spacing from the product details above */
+  padding-top: 2rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.header {
+  font-size: 1.5rem;
+  color: #111827;
+  margin-bottom: 1.5rem;
+}
+
+.emptyState {
+  color: #6b7280;
+  font-style: italic;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.reviewCard {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #f3f4f6;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.reviewHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.author {
+  font-weight: 700;
+  color: #111827;
+}
+
+.verifiedBadge {
+  display: inline-flex;
+  align-items: center;
+  color: #059669; /* Emerald Green */
+  font-weight: 600;
+  font-size: 0.75rem;
+  background-color: #ecfdf5;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.date {
+  margin-left: auto; /* Pushes date to the far right */
+  color: #9ca3af;
+}
+
+.stars {
+  color: #fbbf24; /* Amber/Gold color */
+  font-size: 1.25rem;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}
+
+.content {
+  color: #4b5563;
+  line-height: 1.6;
+}

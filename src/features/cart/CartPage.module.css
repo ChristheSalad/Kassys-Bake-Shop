@@ -1,0 +1,134 @@
+/* src/features/cart/CartPage.module.css */
+.container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 1rem;
+}
+
+.emptyContainer {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.continueBtn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #2563eb;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 300px; /* List takes available space, Summary is fixed 300px */
+  gap: 2rem;
+}
+
+/* Make it stack on mobile */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Item Row Styling */
+.itemRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.thumbnail {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.itemDetails {
+  flex: 1; /* Pushes other items to the right */
+}
+
+.itemDetails h3 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.1rem;
+}
+
+.unitPrice {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.quantity {
+  font-weight: 600;
+  color: #374151;
+}
+
+.removeBtn {
+  background: none;
+  border: none;
+  color: #9ca3af;
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.removeBtn:hover {
+  color: #ef4444; /* Red on hover */
+}
+
+/* Summary Box Styling */
+.summary {
+  background: #f9fafb;
+  padding: 1.5rem;
+  border-radius: 8px;
+  height: fit-content; /* Don't stretch to full height */
+}
+
+.summary h3 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  color: #4b5563;
+}
+
+.total {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 1rem;
+  margin-top: 1rem;
+  font-weight: 700;
+  color: #111827;
+  font-size: 1.2rem;
+}
+
+.checkoutBtn {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background-color: #059669; /* Green for "Go" */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.checkoutBtn:hover {
+  background-color: #047857;
+}
