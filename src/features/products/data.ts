@@ -6,8 +6,8 @@ export const MOCK_PRODUCTS: Product[] = [
     id: 'p-001',
     slug: 'polvorone-cookie',
     name: 'Polvorone Cookie',
-    description: 'Our best-seller. Brown sugar with a hint of vanilla and a crumbly texture.',
-    priceInCents: 450, // $4.50
+    description: 'Our best-seller. Brown sugar with a hint of vanilla and a crumbly texture. (Comes in a pack of 10 cookies)',
+    priceInCents: 500, // $5.00
     category: 'Cookie',
     ingredients: ['Flour', 'Brown Sugar', 'Butter', 'Almond', 'Eggs', 'Vanilla', 'Baking Powder', 'Salt'],
     allergens: ['Gluten', 'Dairy', 'Tree Nuts'],
